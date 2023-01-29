@@ -4,7 +4,6 @@ const path = require('path');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
 
-
 // import cors
 const cors = require('cors')
 
@@ -14,6 +13,7 @@ const UserRouter = require('./routes/users.routes')
 const HospitalRouter = require('./routes/hospital.routes')
 const BookingRouter = require('./routes/booking.routes')
 const RegistrationRoutor = require('./routes/registration.routes')
+const PaymentRouter = require('./routes/payment.routes')
 
 const app = express()
 const port = 3000
@@ -64,6 +64,9 @@ app.use('/booking', BookingRouter);
 
 /* use RegistrationRoutor */
 app.use('/registration', RegistrationRoutor);
+
+/* use PaymentRouter */
+app.use('/payment', PaymentRouter);
 
 
 /* use HomePage */
