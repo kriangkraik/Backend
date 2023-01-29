@@ -1,6 +1,6 @@
 const connectDB = require("../config/database");
 
-/* Insert New Row */
+/* Create New Hospital */
 exports.createOneRequest = (req, res) => {
   let Id = req.body.id;
   let hospital_Name = req.body.hospital_name;
@@ -34,7 +34,7 @@ exports.createOneRequest = (req, res) => {
   });
 };
 
-/* Select All Item */
+/* Select All Hospital */
 exports.readAllRequest = (req, res) => {
   let sql = "SELECT * FROM hospital";
   connectDB.query(sql , function (err, result) {
@@ -52,7 +52,7 @@ exports.readAllRequest = (req, res) => {
   });
 };
 
-/* Select by Id */
+/* Select Hospital By Key */
 exports.readOneRequest = (req, res) => {
   let id = req.params.id;
   let sql = "SELECT * FROM hospital WHERE hospital_Id = ?";
@@ -71,7 +71,7 @@ exports.readOneRequest = (req, res) => {
   });
 };
 
-/* Update by Id */
+/* Edit Hospital By Key */
 exports.updateOneRequest = (req, res) => {
   let id = req.params.id;
   let namehospital = req.body.namehospital;
@@ -104,7 +104,7 @@ exports.updateOneRequest = (req, res) => {
   });
 };
 
-/* Delete by Id */
+/* Delete Hospital By Key */
 exports.deleteOneRequest = (req, res) => {
   let id = req.params.id;
   let sql = "DELETE FROM hospital WHERE hospital_Id = ?";

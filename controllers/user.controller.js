@@ -1,5 +1,6 @@
 const connectDB = require("../config/database");
 
+/* Create New User */
 exports.createOneRequest = (req, res) => {
   let Id = req.body.id;
   let user_Firstname = req.body.user_Firstname;
@@ -39,7 +40,7 @@ exports.createOneRequest = (req, res) => {
   });
 };
 
-/* Select All Item */
+/* Select All User */
 exports.readAllRequest = (req, res) => {
   let sql = "SELECT * FROM user";
   connectDB.query(sql, function (err, result) {
@@ -57,6 +58,7 @@ exports.readAllRequest = (req, res) => {
   });
 };
 
+/* Select User By Key */
 exports.readOneRequest = (req, res) => {
   let id = req.params.id;
   let sql = "SELECT * FROM user WHERE user_Id = ?";
@@ -75,6 +77,7 @@ exports.readOneRequest = (req, res) => {
   });
 };
 
+/* Edit User By Key */
 exports.updateOneRequest = (req, res) => {
   let Id = req.body.id;
   let user_Firstname = req.body.user_Firstname;
@@ -98,7 +101,9 @@ exports.updateOneRequest = (req, res) => {
 
   let sql =
     "UPDATE user SET " +
-    "hospital_Name = ?, hospital_Type = ? WHERE hospital_Id = ?";
+    "user_Firstname = ?, user_Lastname = ?, user_Email = ?,"+
+    "user_Age = ?, user_Phone1 = ?, user_Phone2 = ?, user_Symptom = ?"+
+    "WHERE user_Id = ?";
   connectDB.query(sql, data, function (err, result) {
     if (err) {
       res.status(500).json({ message: err.message });
@@ -111,6 +116,7 @@ exports.updateOneRequest = (req, res) => {
   });
 };
 
+/* Delete User By Key */
 exports.deleteOneRequest = (req, res) => {
   let id = req.params.id;
   let sql = "DELETE FROM user WHERE user_Id = ?";

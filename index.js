@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const dotenv = require("dotenv");
+dotenv.config({ path: "./.env" });
 
 // import cors
 const cors = require('cors')
@@ -16,7 +18,7 @@ const RegistrationRoutor = require('./routes/registration.routes')
 const PaymentRouter = require('./routes/payment.routes')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT;
 
 
 /* EJS is accessed by default in the views directory. */
