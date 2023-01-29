@@ -28,6 +28,24 @@ exports.createOneRequest = (req, res) => {
     res.status(201).json({message: "New resource created!"});
 }
 
+/* Select All Item */
+exports.readAllRequest = (req, res) => {
+    let sql = "SELECT * FROM employee";
+    connectDB.query(sql , function (err, result) {
+      if (err) {
+        res.status(500).json({ message: err.message });
+      } else {
+        if (result.length === 0) {
+          res.status(404).json({
+            message: "No results found",
+          });
+        } else {
+          res.status(302).json(result);
+        }
+      }
+    });
+  };
+
 exports.readOneRequest = (req, res) => {
     let id = req.params.id;
     let sql = 'SELECT * FROM employee WHERE emp_Id = ?';

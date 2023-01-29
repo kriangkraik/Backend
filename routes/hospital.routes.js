@@ -4,6 +4,7 @@ const urlRoutes = express.Router();
 const controller = require('../controllers/hospital.controller');
 
 urlRoutes.post('/', controller.createOneRequest);
+urlRoutes.get('/', controller.readAllRequest);
 urlRoutes.get('/:id', controller.readOneRequest);
 urlRoutes.put('/:id', controller.updateOneRequest);
 urlRoutes.delete('/:id', controller.deleteOneRequest);

@@ -13,6 +13,7 @@ const EmployeesRouter = require('./routes/employees.routes')
 const UserRouter = require('./routes/users.routes')
 const HospitalRouter = require('./routes/hospital.routes')
 const BookingRouter = require('./routes/booking.routes')
+const RegistrationRoutor = require('./routes/registration.routes')
 
 const app = express()
 const port = 3000
@@ -60,6 +61,10 @@ app.use('/hospitals', HospitalRouter);
 
 /* use BookingRouter */
 app.use('/booking', BookingRouter);
+
+/* use RegistrationRoutor */
+app.use('/registration', RegistrationRoutor);
+
 
 /* use HomePage */
 app.get('/', (req, res) => {
