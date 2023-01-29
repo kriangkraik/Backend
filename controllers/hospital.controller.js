@@ -1,11 +1,35 @@
+const { json } = require("sequelize");
 const connectDB = require("../config/database");
 
 /* Insert New Row */
-exports.createOneRequest = (req, res) => {
-  let hospital_name = req.body.hospital_name;
-  const sql =
-    "INSERT INTO hospital (hospital_name) VALUES (" + hospital_name + ")";
-  connectDB.query(sql, function (err, result) {
+ exports.createOneRequest = (req, res) => {
+  let Id = req.body.id;
+  let hospital_Name = req.body.hospital_name;
+  let hospital_Type = req.body.hospital_type;
+  let hospital_Address = req.body.hospital_address;
+  let hospital_Tel = req.body.hospital_tel;
+  let hospital_Email = req.body.hospital_email;
+
+  console.log(json({
+    Id:Id,
+    hospital_Name: hospital_Name,
+    hospital_Type: hospital_Type,
+    hospital_Address: hospital_Address,
+    hospital_Tel: hospital_Tel,
+    hospital_Email: hospital_Email
+  }))
+
+  let data = [
+    Id,
+    hospital_Name,
+    hospital_Type,
+    hospital_Address,
+    hospital_Tel,
+    hospital_Email
+  ]
+
+  const sql = "INSERT INTO hospital VALUES (?, ?, ?, ?, ?, ?)";
+  connectDB.query(sql, data, function (err, result) {
     if (err) {
       res.status(500).json({ message: err.message });
     } else {
@@ -14,7 +38,7 @@ exports.createOneRequest = (req, res) => {
           message: "No results found",
         });
       } else {
-        res.status(201).json(result[0]);
+        res.status(201).json({message:"Insert succeeded"});
       }
     }
   });
