@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
+    <%- include('../partials/head'); %>
 </head>
 <body>
-    <h1>Upload Image</h1>
     <form method="post" action="/payment/addrecipt" enctype="multipart/form-data">
-        <input type="file" name="image">
-        <input type="submit" value="submit">
+        <div class="form-group">
+            <label for="FormUploadFile">โปรดกรอกรายละเอียดของคุณ!</label>
+            <input type="file" class="form-control-file" name="image">
+        </div>
+        <div class="form-group">
+            <ul class="form-list">
+                    <label for="name" class="required"><em>*</em>ชื่อ</label>
+                    <div class="input-box">
+                        <input type="text" name="name" id="name" class="form-control">
+                    </div>
+
+                    <label for="FormUploadFile"><em>*</em>นามสกุล</label>
+                    <div class="input-box">
+                        <input type="text" name="sername" id="sername" class="form-control">
+                    </div>
+
+                    <label for="FormUploadFile"><em>*</em>อีเมล</label>
+                    <div class="input-box">
+                        <input type="text" name="email" id="email" class="form-control">
+                    </div>
+
+                    <label for="FormUploadFile"><em>*</em>เบอร์โทรศัพท์</label>
+                    <div class="input-box">
+                        <input type="text" name="phone" id="phone" class="form-control">
+                    </div>
+                    <label for="FormUploadFile"><em>*</em>เลขที่รายการจอง</label>
+                    <div class="input-box">
+                        <input type="text" name="bookingnumber" id="bookingnumber" class="form-control">
+                    </div>
+
+
+                    <label for="FormUploadFile"><em>*</em>วันที่โอน</label>
+                    <div class="input-box">
+                        <input type="text" name="datetransfer" id="datetransfer" class="form-control" data-validate="{required:true,'therootdatetimevalidationrule':true}">
+                        <h6>รูปแบบวันที่: วัน / เดือน / ปี ชั่วโมง: นาที</h6>
+                        <h6 style="color: red">กรุณาระบุเป็น ปี ค.ศ. เท่านั้น</h6>
+                    </div>
+                    <label for="FormUploadFile"><em>*</em>จำนวนเงินที่โอน</label>
+                    <div class="input-box">
+                        <input type="text" name="price" id="price" class="form-control">
+                    </div>
+                
+                    <div class="input-box">
+                        <button class="btn btn-primary">ยืนยัน</button>
+                        <button class="btn btn-warning">ยกเลิก</button>
+                    </div>
+            </ul> 
+        </div>
     </form>
 </body>
 </html>
