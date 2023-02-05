@@ -73,9 +73,14 @@ app.use('/payment', PaymentRouter);
 
 /* use HomePage */
 app.get('/', (req, res) => {
-  //res.json({ message: "ok" });
-  res.render("index");
+  res.render("pages/index");
 })
+
+/* use Management Data */
+app.get('/management', (req, res) => {
+  res.render("pages/management");
+});
+
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {

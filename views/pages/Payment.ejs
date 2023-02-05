@@ -1,58 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../partials/head'); %>
 </head>
+
 <body>
-    <form method="post" action="/payment/addrecipt" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="FormUploadFile">โปรดกรอกรายละเอียดของคุณ!</label>
-            <input type="file" class="form-control-file" name="image">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+        data-whatever="@mdo">แจ้งโอนเงิน</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h8 class="modal-title" id="exampleModalLabel">โปรดกรอกรายละเอียดของคุณ</h8>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="/payment/addrecipt" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">รูปภาพ:</label>
+                            <input type="file" class="form-control-file" name="image">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label"><em>*</em>ชื่อ</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="ชื่อ">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label"><em>*</em>นามสกุล</label>
+                            <input type="text" name="sername" id="sername" class="form-control" placeholder="นามสกุล">
+                        </div>
+                        <div class="form-group">
+                            <label for="FormUploadFile"><em>*</em>อีเมล</label>
+                            <input type="text" name="email" id="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="FormUploadFile"><em>*</em>เบอร์โทรศัพท์</label>
+                            <input type="text" name="phone" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="FormUploadFile"><em>*</em>เลขที่รายการจอง</label>
+                            <input type="text" name="bookingnumber" id="bookingnumber" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="FormUploadFile"><em>*</em>วันที่โอน</label>
+                            <input type="text" name="datetransfer" id="datetransfer" class="form-control"
+                                data-validate="{required:true,'therootdatetimevalidationrule':true}"
+                                placeholder="วัน/เดือน/ปี ชั่วโมง:นาที">
+                            <h7>รูปแบบวันที่: วัน / เดือน / ปี ชั่วโมง: นาที</h7><br>
+                            <h7 style="color: red">กรุณาระบุเป็น ปี ค.ศ. เท่านั้น</h7>
+                        </div>
+                        <div class="form-group">
+                            <label for="FormUploadFile"><em>*</em>จำนวนเงินที่โอน</label>
+                            <input type="text" name="price" id="price" class="form-control">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ยกเลิก</button>
+                    <button type="button" class="btn btn-primary">ส่ง</button>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <ul class="form-list">
-                    <label for="name" class="required"><em>*</em>ชื่อ</label>
-                    <div class="input-box">
-                        <input type="text" name="name" id="name" class="form-control">
-                    </div>
-
-                    <label for="FormUploadFile"><em>*</em>นามสกุล</label>
-                    <div class="input-box">
-                        <input type="text" name="sername" id="sername" class="form-control">
-                    </div>
-
-                    <label for="FormUploadFile"><em>*</em>อีเมล</label>
-                    <div class="input-box">
-                        <input type="text" name="email" id="email" class="form-control">
-                    </div>
-
-                    <label for="FormUploadFile"><em>*</em>เบอร์โทรศัพท์</label>
-                    <div class="input-box">
-                        <input type="text" name="phone" id="phone" class="form-control">
-                    </div>
-                    <label for="FormUploadFile"><em>*</em>เลขที่รายการจอง</label>
-                    <div class="input-box">
-                        <input type="text" name="bookingnumber" id="bookingnumber" class="form-control">
-                    </div>
-
-
-                    <label for="FormUploadFile"><em>*</em>วันที่โอน</label>
-                    <div class="input-box">
-                        <input type="text" name="datetransfer" id="datetransfer" class="form-control" data-validate="{required:true,'therootdatetimevalidationrule':true}">
-                        <h6>รูปแบบวันที่: วัน / เดือน / ปี ชั่วโมง: นาที</h6>
-                        <h6 style="color: red">กรุณาระบุเป็น ปี ค.ศ. เท่านั้น</h6>
-                    </div>
-                    <label for="FormUploadFile"><em>*</em>จำนวนเงินที่โอน</label>
-                    <div class="input-box">
-                        <input type="text" name="price" id="price" class="form-control">
-                    </div>
-                
-                    <div class="input-box">
-                        <button class="btn btn-primary">ยืนยัน</button>
-                        <button class="btn btn-warning">ยกเลิก</button>
-                    </div>
-            </ul> 
-        </div>
-    </form>
+    </div>
 </body>
+
 </html>
