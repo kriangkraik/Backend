@@ -14,7 +14,7 @@ const EmployeesRouter = require('./routes/employees.routes')
 const UserRouter = require('./routes/users.routes')
 const HospitalRouter = require('./routes/hospital.routes')
 const BookingRouter = require('./routes/booking.routes')
-const RegistrationEmployeeRoutor = require('./routes/registrationemp.routes')
+const Registration = require('./routes/registration.routes')
 const PaymentRouter = require('./routes/payment.routes')
 
 const app = express()
@@ -52,22 +52,22 @@ app.use(passport.session());
 /* Use cors */
 app.use(cors());
 
-/* use EmployeesRouter */
+/* use EmployeesRoute */
 app.use('/employees', EmployeesRouter);
 
-/* use UsersRouter */
+/* use UsersRoute */
 app.use('/users', UserRouter);
 
-/* use HospitalRouter */
+/* use HospitalRoute */
 app.use('/hospitals', HospitalRouter);
 
-/* use BookingRouter */
+/* use BookingRoute */
 app.use('/booking', BookingRouter);
 
-/* use RegistrationEmployeeRoutor */
-app.use('/registrationemployee', RegistrationEmployeeRoutor);
+/* use RegistrationRoute */
+app.use('/registration', Registration);
 
-/* use PaymentRouter */
+/* use PaymentRoute */
 app.use('/payment', PaymentRouter);
 
 
