@@ -3,9 +3,10 @@ const urlRoutes = express.Router();
 
 const controller = require('../controllers/booking.controller');
 
-urlRoutes.post('/', controller.createOneRequest);
-urlRoutes.get('/:id', controller.readOneRequest);
-urlRoutes.put('/:id', controller.updateOneRequest);
-urlRoutes.delete('/:id', controller.deleteOneRequest);
+urlRoutes.post('/', controller.createBooking);
+urlRoutes.get('/:id', controller.readBookingById);
+urlRoutes.get('/', controller.readAllBooking);
+urlRoutes.put('/:id', controller.updateBooking);
+urlRoutes.delete('/:id', controller.deleteBooking);
 
 module.exports = urlRoutes;
