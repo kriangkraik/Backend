@@ -14,7 +14,7 @@ const EmployeesRouter = require('./routes/employees.routes')
 const UserRouter = require('./routes/users.routes')
 const HospitalRouter = require('./routes/hospital.routes')
 const BookingRouter = require('./routes/booking.routes')
-const RegistrationRoutor = require('./routes/registration.routes')
+const RegistrationEmployeeRoutor = require('./routes/registrationemp.routes')
 const PaymentRouter = require('./routes/payment.routes')
 
 const app = express()
@@ -64,8 +64,8 @@ app.use('/hospitals', HospitalRouter);
 /* use BookingRouter */
 app.use('/booking', BookingRouter);
 
-/* use RegistrationRoutor */
-app.use('/registration', RegistrationRoutor);
+/* use RegistrationEmployeeRoutor */
+app.use('/registrationemployee', RegistrationEmployeeRoutor);
 
 /* use PaymentRouter */
 app.use('/payment', PaymentRouter);

@@ -1,7 +1,7 @@
 const express = require('express');
 const urlRoutes = express.Router();
 
-const controller = require('../controllers/registration.controller');
+const controller = require('../controllers/registrationemp.controller');
 
 urlRoutes.post('/', controller.register);
 
